@@ -7,10 +7,10 @@ import (
 
 var (
 	firstName, lastName, s string
-	i int
-	f float32
-	input = "56.12 / 5212 / Go"
-	format = "%f / %d / %s"
+	i                      int
+	f                      float32
+	input                  = "56.12 / 5212 / Go"
+	format                 = "%f / %d / %s"
 
 	ret int
 	err error
@@ -30,7 +30,6 @@ func main() {
 	fmt.Println(time.Now().Format("2006-01-02"))
 	fmt.Println(time.Now().Format("20060102"))
 
-
 	a, b, c := "", 0, false
 	fmt.Scan(&a, &b, &c)
 	fmt.Println(a, b, c)
@@ -39,8 +38,7 @@ func main() {
 	fmt.Println(a, b, c)
 
 	fmt.Scanf("%3s%d%t", &a, &b, &c)
-	fmt.Println(a,b,c)
-
+	fmt.Println(a, b, c)
 
 	//fmt.Scanln(&firstName, &lastName)
 	// fmt.Scanf(“%s %s”, &firstName, &lastName)
@@ -50,4 +48,3 @@ func main() {
 	//fmt.Scanln(&firstName, &lastName)
 
 }
-

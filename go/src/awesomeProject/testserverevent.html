@@ -1,27 +1,30 @@
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
-    <meta charset="UTF-8">
-    <title>EventSource测试</title>
+        <meta charset="UTF-8">
+        <title>EventSource测试</title>
     </head>
+
     <body>
-    <h1>服务器当前时间:</h1>
-    <div id = "result"></div>
-    <div>typeof(EventSource):<output id="keytype"></output></div>
-    <script>
-    var resultElement = document.getElementById("keytype")
-    resultElement.value = typeof (EventSource)
-    if (typeof(EventSource) !== "undefined"){
-    document.getElementById("result").innerHTML = "连接网络";
-    //getdate为golang中提供的访问目录名称http.HandleFunc("/getdate",getDate)
-    var source = new EventSource("getdate");
-    source.onmessage = function (event) {
-     
-    document.getElementById("result").innerHTML += event.data +"<br>";
-    };
-    }else{
-    document.getElementById("result").innerHTML = "抱歉，你的浏览器不支持server-sent事件...";
-    }
-    </script>
+        <h1 align="center" width="50%">服务器当前时间:</h1>
+        <div align="center" width="50%" id = "result"></div>
+        <div align="center" width="50%">typeof(EventSource):<output id="keytype"></output></div>
+
+        <script>
+            var resultElement = document.getElementById("keytype")
+            resultElement.value = typeof (EventSource)
+            if (typeof(EventSource) !== "undefined"){
+                document.getElementById("result").innerHTML = "连接网络:"+"<br>";
+                //getdate为golang中提供的访问目录名称http.HandleFunc("/getdate",getDate)
+                var source = new EventSource("getdate");
+                source.onmessage = function (event) {
+                    document.getElementById("result").innerHTML += event.data +"<br>";
+                };
+            }else{
+                document.getElementById("result").innerHTML = "抱歉，你的浏览器不支持server-sent事件...";
+            }
+        </script>
     </body>
+
     </html>
