@@ -66,6 +66,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer listener.Close()
 
 	//go broadcaster()
 

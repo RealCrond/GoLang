@@ -55,20 +55,19 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func main() {
-	fmt.Println("enter main.")
-
+func initHandleFunc(){
 	http.HandleFunc("/", viewData)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/getdate", getDate)
-	//测试当addr的传入值为空时没法运行的原因
-	//err:=http.ListenAndServe("",nil)
-	//if err != nil{
-	//	log.Fatal("ListenAndServer:",err)
-	//}
-	//在mac下运行，必须给一个大于1024的端口
-	err := http.ListenAndServe(":7000", nil)
+}
 
+func main() {
+	fmt.Println("enter main.")
+
+	initHandleFunc()
+
+	//在mac下运行，必须给一个大于1024的端口
+	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}
